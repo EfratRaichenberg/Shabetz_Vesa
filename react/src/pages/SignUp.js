@@ -18,17 +18,7 @@ function SignUp() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post(`http://localhost:3001/passenger/addNewPassenger`,
-            {
-                "Name": passengerState.firstName + " " + passengerState.lastName,
-                "Phone_number": passengerState.phone,
-                "City": passengerState.city,
-                "Neighborhood": passengerState.neighborhood,
-                "Street": passengerState.street,
-                "Hospital": passengerState.Hospital,
-                "Hour": passengerState.Hour
-
-            })
+        axios.post(`http://localhost:3001/passenger/addNewPassenger`, passengerState)
             .then(response => response.status)
             .catch(err => console.warn(err));
         alert("insert successfuly");

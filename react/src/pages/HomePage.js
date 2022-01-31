@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Button } from 'react-bootstrap';
+// import { render } from 'https://cdn.skypack.dev/react-dom'
 
+
+// const ROOT_NODE = document.querySelector('#app')
 
 function HomePage() {
     const navigate = useNavigate();
@@ -11,9 +14,7 @@ function HomePage() {
     }
 
     return (
-        <div>
-            <header>=== HOME PAGE --- SHABETZ VESA :) ===</header>
-            <br></br>
+        <Fragment>
             <Button onClick={() => handleClick('SignIn')}>
                 sign In
             </Button>
@@ -29,7 +30,8 @@ function HomePage() {
             <Button onClick={() => handleClick('LogOut')}>
                 Log Out
             </Button>
-        </div>
+        </Fragment>
     );
 };
+// render(<HomePage />, ROOT_NODE)
 export default HomePage;
