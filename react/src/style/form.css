@@ -6,12 +6,15 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
+
 }
 
 html, body {
     height: 100%;
     background-color: #cccaca;
-    overflow: hidden;
+    /* overflow: hidden; */
+    overflow: auto;
+
 }
 
 
@@ -22,6 +25,7 @@ html, body {
       align-items: center;
       text-align: center;
       min-height: 100vh;
+
 }
 
 .form-holder .form-content {
@@ -59,10 +63,12 @@ html, body {
     font-size: 28px;
     font-weight: 600;
     margin-bottom: 5px;
+
 }
 
 .form-content h3.form-title {
     margin-bottom: 30px;
+
 }
 
 .form-content p {
@@ -72,6 +78,7 @@ html, body {
     font-weight: 300;
     line-height: 20px;
     margin-bottom: 30px;
+
 }
 
 
@@ -79,7 +86,8 @@ html, body {
     color: #b33178;
 }
 
-.form-content input[type=text], .form-content input[type=password], .form-content input[type=email], .form-content select {
+.form-content input[type=text], .form-content input[type=password], .form-content input[type=email],
+ .form-content input[type=phone], .form-content input[type=time], .form-content select {
     width: 100%;
     padding: 9px 20px;
     text-align: left;
@@ -93,6 +101,7 @@ html, body {
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
     margin-top: 16px;
+
 }
 
 
@@ -101,6 +110,7 @@ html, body {
     outline: none;
     border: 0px;
      box-shadow: none;
+
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active{
@@ -108,6 +118,7 @@ html, body {
     outline: none !important;
     border: none !important;
      box-shadow: none;
+
 }
 
 .form-content textarea {
@@ -133,6 +144,7 @@ html, body {
     border: 0;
     background-color: #ebeff8;
     color: #b33178;
+
 }
 
 .mv-up{

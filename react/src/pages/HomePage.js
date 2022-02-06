@@ -7,7 +7,6 @@ import { Button } from 'react-bootstrap';
 function HomePage() {
     const navigate = useNavigate();
     const handleClick = e => {
-        // e.preventDefault()
         navigate("/" + e);
     }
     return (

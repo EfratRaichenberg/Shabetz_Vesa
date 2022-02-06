@@ -1,0 +1,15 @@
+.managerZone {
+    display: grid;
+    grid-template-columns: repeat(4, 0.5fr) 1fr 0.5fr repeat(2, 1fr) 0.5fr repeat(2, 1fr) 0.5fr;
+    grid-template-rows: 0.5fr repeat(3, 1fr) 0.5fr repeat(7, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+    
+    .profile { grid-area: 2 / 11 / 3 / 12; }
+    .logOut { grid-area: 2 / 2 / 3 / 3; }
+    .Home { grid-area: 2 / 4 / 3 / 5; }
+    .approveVolunteers { grid-area: 7 / 10 / 9 / 12; }
+    .aprroveDrives { grid-area: 7 / 7 / 9 / 9; }
+    .viewRports { grid-area: 7 / 3 / 9 / 6; }
+    .Assign { grid-area: 3 / 6 / 5 / 10; }

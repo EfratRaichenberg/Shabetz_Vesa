@@ -1,36 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 function SignUp() {
     const [passengerState, setPassengerState] = useState(
         {
             firstName: '',
             lastName: '',
+            Password: '',
             street: '',
             neighborhood: '',
             city: '',
-            Hospital: '',
             phone: '',
+            mail: '',
+            Hospital: '',
             Hour: '',
-            Password: ''
         }
     );
-
+    const navigate = useNavigate();
+    const handleClick = e => {
+        navigate("/" + e);
+    }
     const handleSubmit = (event) => {
         event.preventDefault();
         axios.post(`http://localhost:3001/passenger/addNewPassenger`, {
             "Name": passengerState.firstName + " " + passengerState.lastName,
             "Phone_number": passengerState.phone,
+            "Mail": passengerState.mail,
             "City": passengerState.city,
             "Neighborhood": passengerState.neighborhood,
             "Street": passengerState.street,
             "Hospital": passengerState.Hospital,
-            "Hour": passengerState.Hour
-
+            "Hour": passengerState.Hour,
+            "Password": passengerState.Password
         })
             .then(response => response.status)
             .catch(err => console.warn(err));
         alert("insert successfuly");
+        handleClick('PassengerZone');
     };
     //     axios.get(`http://localhost:3001/volunteer/getVolunteerList`)
     // .then(res=>{
@@ -44,7 +51,7 @@ function SignUp() {
                 <div class="form-holder">
                     <div class="form-content">
                         <div class="form-items">
-                            <h3>מחכים רק שתירשם</h3>
+                            <h3> הרשמה למשפחת שבץ וסע </h3>
                             <form class="requires-validation" novalidate onSubmit={handleSubmit}>
 
                                 <div class="col-md-12">
@@ -62,7 +69,8 @@ function SignUp() {
                                 </div>
 
                                 <div class="col-md-12">
-                                    <input class="form-control" type="password" name="password" placeholder="סיסמא" required />
+                                    <input class="form-control" type="password" name="name" placeholder="סיסמא" required value={passengerState.Password}
+                                        onChange={(e) => setPassengerState({ ...passengerState, Password: e.target.value })} />
                                     <div class="valid-feedback">Password field is valid!</div>
                                     <div class="invalid-feedback">Password field cannot be blank!</div>
                                 </div>
@@ -71,43 +79,50 @@ function SignUp() {
                                 <div class="col-md-12">
                                     <input class="form-control" type="text" name="name" placeholder="רחוב" required value={passengerState.street}
                                         onChange={(e) => setPassengerState({ ...passengerState, street: e.target.value })} />
-                                    <div class="valid-feedback">Username field is valid!</div>
-                                    <div class="invalid-feedback">Username field cannot be blank!</div>
+                                    <div class="valid-feedback">street field is valid!</div>
+                                    <div class="invalid-feedback">street field cannot be blank!</div>
                                 </div>
 
                                 <div class="col-md-12">
                                     <input class="form-control" type="text" name="name" placeholder="שכונה" required value={passengerState.neighborhood}
                                         onChange={(e) => setPassengerState({ ...passengerState, neighborhood: e.target.value })} />
-                                    <div class="valid-feedback">Username field is valid!</div>
-                                    <div class="invalid-feedback">Username field cannot be blank!</div>
+                                    <div class="valid-feedback">neighborhood field is valid!</div>
+                                    <div class="invalid-feedback">neighborhood field cannot be blank!</div>
                                 </div>
 
                                 <div class="col-md-12">
                                     <input class="form-control" type="text" name="name" placeholder="עיר" required value={passengerState.city}
                                         onChange={(e) => setPassengerState({ ...passengerState, city: e.target.value })} />
-                                    <div class="valid-feedback">Username field is valid!</div>
-                                    <div class="invalid-feedback">Username field cannot be blank!</div>
+                                    <div class="valid-feedback">city field is valid!</div>
+                                    <div class="invalid-feedback">city field cannot be blank!</div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <input class="form-control" type="phone" name="name" placeholder="טלפון" required value={passengerState.phone}
+                                        onChange={(e) => setPassengerState({ ...passengerState, phone: e.target.value })} />
+                                    <div class="valid-feedback">phone field is valid!</div>
+                                    <div class="invalid-feedback">phone field cannot be blank!</div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <input class="form-control" type="email" name="name" placeholder="אי-מייל" required value={passengerState.mail}
+                                        onChange={(e) => setPassengerState({ ...passengerState, mail: e.target.value })} />
+                                    <div class="valid-feedback">email field is valid!</div>
+                                    <div class="invalid-feedback">email field cannot be blank!</div>
                                 </div>
 
                                 <div class="col-md-12">
                                     <input class="form-control" type="text" name="name" placeholder="בית חולים" required value={passengerState.Hospital}
                                         onChange={(e) => setPassengerState({ ...passengerState, Hospital: e.target.value })} />
-                                    <div class="valid-feedback">Username field is valid!</div>
-                                    <div class="invalid-feedback">Username field cannot be blank!</div>
+                                    <div class="valid-feedback">hospital field is valid!</div>
+                                    <div class="invalid-feedback">hospital field cannot be blank!</div>
                                 </div>
 
                                 <div class="col-md-12">
-                                    <input class="form-control" type="text" name="name" placeholder="טלפון" required  //             value={passengerState.phone}
-                                        onChange={(e) => setPassengerState({ ...passengerState, phone: e.target.value })} />
-                                    <div class="valid-feedback">Username field is valid!</div>
-                                    <div class="invalid-feedback">Username field cannot be blank!</div>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <input class="form-control" type="text" name="name" placeholder="שעת טיפול" required value={passengerState.Hour}
+                                    <input class="form-control" type="time" name="name" placeholder="שעת טיפול קבועה" required value={passengerState.Hour}
                                         onChange={(e) => setPassengerState({ ...passengerState, Hour: e.target.value })} />
-                                    <div class="valid-feedback">Username field is valid!</div>
-                                    <div class="invalid-feedback">Username field cannot be blank!</div>
+                                    <div class="valid-feedback">hour field is valid!</div>
+                                    <div class="invalid-feedback">hour field cannot be blank!</div>
                                 </div>
 
                                 <div class="col-md-12 mt-3">

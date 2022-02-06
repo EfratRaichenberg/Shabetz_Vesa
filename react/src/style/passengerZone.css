@@ -1,0 +1,15 @@
+.passengerZone { 
+    display: grid;
+    grid-template-columns: repeat(4, 0.5fr) repeat(5, 1fr) 0.5fr 1fr 0.5fr;
+    grid-template-rows: repeat(3, 1fr) 0.5fr 1fr 0.5fr repeat(3, 1fr) 0.5fr repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+    
+    .profile { grid-area: 2 / 11 / 3 / 12; }
+    .logOut { grid-area: 2 / 2 / 3 / 3; }
+    .Home { grid-area: 2 / 4 / 3 / 5; }
+    .orderDrive { grid-area: 3 / 6 / 4 / 8; }
+    .H3 { grid-area: 5 / 9 / 6 / 11; }
+    .preDdrivesConetent { grid-area: 7 / 5 / 10 / 11; }
+    .feedback { grid-area: 11 / 5 / 12 / 7; }

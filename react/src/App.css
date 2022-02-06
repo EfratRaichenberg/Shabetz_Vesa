@@ -1,9 +1,10 @@
 .parent {
   display: grid;
   grid-template-columns: 0.5fr repeat(10, 1fr) 0.5fr;
-  grid-template-rows: 0.5fr repeat(2, 1fr) 0.5fr repeat(7, 1fr) 0.5fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-template-rows: 0.5fr repeat(2, 1fr) 0.5fr repeat(7, 1fr) 0.5fr;  
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  overflow: auto;
   }
   
   .div1 { grid-area: 2 / 2 / 4 / 12;
@@ -11,16 +12,12 @@
   .div2 { grid-area: 5 / 2 / 12 / 12; 
   }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
+  grid-area: 2 / 2 / 4 / 12;
+  margin-bottom: 200px;
   background-color: #282c34;
   min-height: 100vh;
-  display: flex;
+  display:block;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -31,14 +28,4 @@
 .App-link {
   color: #61dafb;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 
