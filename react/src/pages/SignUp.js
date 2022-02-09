@@ -12,9 +12,9 @@ function SignUp() {
             neighborhood: '',
             city: '',
             phone: '',
-            mail: '',
-            Hospital: '',
-            Hour: '',
+            Mail: ''
+            // Hospital: '',
+            // Hour: '',
         }
     );
     const navigate = useNavigate();
@@ -26,13 +26,13 @@ function SignUp() {
         axios.post(`http://localhost:3001/passenger/addNewPassenger`, {
             "Name": passengerState.firstName + " " + passengerState.lastName,
             "Phone_number": passengerState.phone,
-            "Mail": passengerState.mail,
             "City": passengerState.city,
             "Neighborhood": passengerState.neighborhood,
             "Street": passengerState.street,
-            "Hospital": passengerState.Hospital,
-            "Hour": passengerState.Hour,
-            "Password": passengerState.Password
+            // "Hospital": passengerState.Hospital,
+            // "Hour": passengerState.Hour,
+            "Password": passengerState.Password,
+            "Mail": passengerState.Mail
         })
             .then(response => response.status)
             .catch(err => console.warn(err));
@@ -105,12 +105,12 @@ function SignUp() {
                                 </div>
 
                                 <div class="col-md-12">
-                                    <input class="form-control" type="email" name="name" placeholder="אי-מייל" required value={passengerState.mail}
-                                        onChange={(e) => setPassengerState({ ...passengerState, mail: e.target.value })} />
+                                    <input class="form-control" type="email" name="name" placeholder="אי-מייל" required value={passengerState.Mail}
+                                        onChange={(e) => setPassengerState({ ...passengerState, Mail: e.target.value })} />
                                     <div class="valid-feedback">email field is valid!</div>
                                     <div class="invalid-feedback">email field cannot be blank!</div>
                                 </div>
-
+                                {/* 
                                 <div class="col-md-12">
                                     <input class="form-control" type="text" name="name" placeholder="בית חולים" required value={passengerState.Hospital}
                                         onChange={(e) => setPassengerState({ ...passengerState, Hospital: e.target.value })} />
@@ -123,7 +123,7 @@ function SignUp() {
                                         onChange={(e) => setPassengerState({ ...passengerState, Hour: e.target.value })} />
                                     <div class="valid-feedback">hour field is valid!</div>
                                     <div class="invalid-feedback">hour field cannot be blank!</div>
-                                </div>
+                                </div> */}
 
                                 <div class="col-md-12 mt-3">
                                     <div class="form-check">
@@ -143,81 +143,6 @@ function SignUp() {
                 </div>
             </div>
         </div>
-
-        // <form onSubmit={handleSubmit}>
-        //     <label>First name:
-        //         <input
-        //             type="text"
-        //             value={passengerState.firstName}
-        //             onChange={(e) => setPassengerState({ ...passengerState, firstName: e.target.value })}
-        //         />
-        //     </label>
-        //     <br />
-        //     <label>Last name:
-        //         <input
-        //             type="text"
-        //             value={passengerState.lastName}
-        //             onChange={(e) => setPassengerState({ ...passengerState, lastName: e.target.value })}
-        //         />
-        //     </label>
-        //     <br />
-        //     <label>street:
-        //         <input
-        //             type="text"
-        //             value={passengerState.street}
-        //             onChange={(e) => setPassengerState({ ...passengerState, street: e.target.value })}
-        //         />
-        //     </label>
-        //     <br />
-        //     <label>neighborhood:
-        //         <input
-        //             type="text"
-        //             value={passengerState.neighborhood}
-        //             onChange={(e) => setPassengerState({ ...passengerState, neighborhood: e.target.value })}
-        //         />
-        //     </label>
-        //     <br />
-        //     <label>city:
-        //         <input
-        //             type="text"
-        //             value={passengerState.city}
-        //             onChange={(e) => setPassengerState({ ...passengerState, city: e.target.value })}
-        //         />
-        //     </label>
-        //     <br />
-        //     <label>Hospital:
-        //         <input
-        //             type="text"
-        //             value={passengerState.Hospital}
-        //             onChange={(e) => setPassengerState({ ...passengerState, Hospital: e.target.value })}
-        //         />
-        //     </label>
-        //     <br />
-        //     <label>phone:
-        //         <input
-        //             type="text"
-        //             value={passengerState.phone}
-        //             onChange={(e) => setPassengerState({ ...passengerState, phone: e.target.value })}
-        //         />
-        //     </label>
-        //     <br />
-        //     <label>hour:
-        //         <input
-        //             type="text"
-        //             value={passengerState.Hour}
-        //             onChange={(e) => setPassengerState({ ...passengerState, Hour: e.target.value })}
-        //         />
-        //     </label>
-        //     <br />
-        //     <label>password:
-        //         <input
-        //             type="text"
-        //             value={passengerState.Password}
-        //             onChange={(e) => setPassengerState({ ...passengerState, Password: e.target.value })}
-        //         />
-        //     </label>
-        //     <input type="submit" />
-        // </form>
     )
 }
 

@@ -12,8 +12,8 @@
 html, body {
     height: 100%;
     background-color: #cccaca;
-    /* overflow: hidden; */
-    overflow: auto;
+    overflow: hidden;
+    /* overflow: auto; */
 
 }
 
@@ -44,7 +44,9 @@ html, body {
 }
 
 .form-content .form-items {
-    border: 3px solid #b33178;
+    background-color:#e8debf;
+    box-shadow: 0px 1px 6px 1px rgb(4 5 8 /10%);
+    border: none;
     padding: 40px;
     display: inline-block;
     width: 100%;
@@ -52,14 +54,12 @@ html, body {
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
-    text-align: left;
     -webkit-transition: all 0.4s ease;
     transition: all 0.4s ease;
 }
 
 .form-content h3 {
     color: #b33178;
-    text-align: left;
     font-size: 28px;
     font-weight: 600;
     margin-bottom: 5px;
@@ -73,7 +73,6 @@ html, body {
 
 .form-content p {
     color: #b33178;
-    text-align: left;
     font-size: 17px;
     font-weight: 300;
     line-height: 20px;
@@ -84,13 +83,13 @@ html, body {
 
 .form-content label, .was-validated .form-check-input:invalid~.form-check-label, .was-validated .form-check-input:valid~.form-check-label{
     color: #b33178;
+    float: left;
 }
 
 .form-content input[type=text], .form-content input[type=password], .form-content input[type=email],
  .form-content input[type=phone], .form-content input[type=time], .form-content select {
     width: 100%;
     padding: 9px 20px;
-    text-align: left;
     border: 0;
     outline: 0;
     border-radius: 6px;
@@ -101,6 +100,7 @@ html, body {
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
     margin-top: 16px;
+    border: none;
 
 }
 
@@ -126,7 +126,6 @@ html, body {
     width: 100%;
     padding: 8px 20px;
     border-radius: 6px;
-    text-align: left;
     background-color: #10999b;
     border: 0;
     font-size: 15px;

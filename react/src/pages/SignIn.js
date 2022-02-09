@@ -8,26 +8,25 @@ function SignIn() {
     const [navigateTo, setNavigateTo] = useState(false)
     const [passengerState, setPassengerState] = useState(
         {
-            userName: '',
-            password: ''
+            Name: '',
+            Password: ''
         }
     );
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.get(`http://localhost:3001/passenger/signIn`, passengerState)
+        axios.get(`http://localhost:3001/passenger/signIn`, { "Name": passengerState.Name, "Password": passengerState.Password })
             .then(response => {
                 if (response.status === 200) {
                     setNavigateTo(true)
-
                 }
             })
             .catch(err => console.warn(err));
         alert("check passed");
     };
     if (navigateTo) {
-        navigate('/MyComp');
+        navigate('/PassengerZone');
     }
     return (
 
@@ -40,13 +39,15 @@ function SignIn() {
                             <form class="requires-validation" novalidate>
 
                                 <div class="col-md-12">
-                                    <input class="form-control" type="text" name="name" placeholder="שם מלא" required />
+                                    <input class="form-control" type="text" name="name" placeholder="שם מלא" required value={passengerState.Name}
+                                        onChange={(e) => setPassengerState({ ...passengerState, Name: e.target.value })} />
                                     <div class="valid-feedback">Username field is valid!</div>
                                     <div class="invalid-feedback">Username field cannot be blank!</div>
                                 </div>
 
                                 <div class="col-md-12">
-                                    <input class="form-control" type="password" name="password" placeholder="סיסמא" required />
+                                    <input class="form-control" type="password" name="password" placeholder="סיסמא" required value={passengerState.Password}
+                                        onChange={(e) => setPassengerState({ ...passengerState, Password: e.target.value })} />
                                     <div class="valid-feedback">Password field is valid!</div>
                                     <div class="invalid-feedback">Password field cannot be blank!</div>
                                 </div>

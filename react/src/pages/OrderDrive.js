@@ -4,7 +4,10 @@ import axios from 'axios';
 
 function OrderDrive() {
     const [passengerState, setPassengerState] = useState(
-        { Hour: '' }
+        {
+            Hour: '',
+            Hospital: ''
+        }
     );
 
     const handleSubmit = (event) => {
@@ -24,12 +27,20 @@ function OrderDrive() {
                 <div class="form-holder">
                     <div class="form-content">
                         <div class="form-items">
-                            <h3>אני רוצה לנסוע ב</h3>
-                            <form class="requires-validation" novalidate onSubmit={handleSubmit}>
 
+                            <form class="requires-validation" novalidate onSubmit={handleSubmit}>
+                                <h3>מתי נוסעים:</h3>
                                 <div class="col-md-12">
                                     <input class="form-control" type="text" name="name" placeholder="שעת נסיעה" required value={passengerState.Hour}
                                         onChange={(e) => setPassengerState({ ...passengerState, Hour: e.target.value })} />
+                                    <div class="valid-feedback">Username field is valid!</div>
+                                    <div class="invalid-feedback">Username field cannot be blank!</div>
+                                </div>
+                                <br></br>
+                                <h3>לאן:</h3>
+                                <div class="col-md-12">
+                                    <input class="form-control" type="text" name="name" placeholder="בית חולים " required value={passengerState.Hospital}
+                                        onChange={(e) => setPassengerState({ ...passengerState, Hospital: e.target.value })} />
                                     <div class="valid-feedback">Username field is valid!</div>
                                     <div class="invalid-feedback">Username field cannot be blank!</div>
                                 </div>
