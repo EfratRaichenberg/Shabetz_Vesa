@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-
+import Navbar from '../components/navbar';
 function RegisterForm() {
     const [passengerState, setPassengerState] = useState(
         {
@@ -15,7 +15,11 @@ function RegisterForm() {
             Hour: ''
         }
     );
-
+    
+    handleClick = () =>
+    {
+        setPassengerState({...passengerState,firstName : '', lastName: '',street: '',neighborhood: '', city: '',Hospital: '',phone: '', Hour: ''})
+    }
     const handleSubmit = (event) => {
         event.preventDefault();
         axios.post(`http://localhost:3001/passenger/addNewPassenger`,
@@ -38,6 +42,8 @@ function RegisterForm() {
     //   alert(JSON.stringify(res.data))
     // });
     return (
+        <>
+        <Navbar></Navbar>
         <form onSubmit={handleSubmit}>
             <label>First name:
                 <input
@@ -102,8 +108,10 @@ function RegisterForm() {
                     onChange={(e) => setPassengerState({ ...passengerState, Hour: e.target.value })}
                 />
             </label>
+            <button className="x rounded-circle " style={{backgroundColor:"pink"}} onClick={handleClick}>X</button>
             <input type="submit" />
         </form>
+        </>
     )
 }
 

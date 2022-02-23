@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import Navbar from '../components/navbar';
+import {connect } from 'react-redux';
 
+const SignIn = (props) => {
 
-function SignIn() {
-
-    const [navigateTo, setNavigateTo] = useState(false)
-    const [passengerState, setPassengerState] = useState(
+    const [navigateTo, setNavigateTo] = useState(false);
+    const [userState, setUserState] = useState(
         {
             Name: '',
             Password: ''
@@ -16,38 +17,57 @@ function SignIn() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.get(`http://localhost:3001/passenger/signIn`, { "Name": passengerState.Name, "Password": passengerState.Password })
-            .then(response => {
-                if (response.status === 200) {
-                    setNavigateTo(true)
-                }
-            })
-            .catch(err => console.warn(err));
-        alert("check passed");
-    };
-    if (navigateTo) {
-        navigate('/PassengerZone');
-    }
-    return (
+        axios.get(`http://localhost:3001/user/signIn/'${userState.Name}'/'${userState.Password}'`)
+        .then(response => {
+            alert(response.data[0].Type);
+            if (response.status === 200) {
+                
+                setNavigateTo(true)
+            }
+        })
+        .catch(err => console.warn(err));
 
+        // props.setUser({
+        //     user:{
+        //         UserId: userD.user_id,
+        //         UserNAme: userD.Name,
+        //         password:userD.Password,
+        //         Type:userD.Type,
+        //         mail: userD.Mail,
+        //         phone : userD.Phone_number,
+        //         City : userD.City,
+        //         Neighborhood : userD.Neighborhood,
+        //         Street: userD.Street
+        //     }
+        // })
+    };
+
+    if (navigateTo) {
+       navigate('/PassengerZone');
+    }
+
+    return (
+        <>
+        <Navbar></Navbar>
         <div class="form-body">
             <div class="row">
                 <div class="form-holder">
                     <div class="form-content">
                         <div class="form-items">
+                            
                             <h3>ברוך השב</h3>
-                            <form class="requires-validation" novalidate>
+                            <form class="requires-validation" novalidate onSubmit={handleSubmit}>
 
                                 <div class="col-md-12">
-                                    <input class="form-control" type="text" name="name" placeholder="שם מלא" required value={passengerState.Name}
-                                        onChange={(e) => setPassengerState({ ...passengerState, Name: e.target.value })} />
+                                    <input class="form-control" type="text" name="name" placeholder="שם מלא" required value={userState.Name}
+                                        onChange={(e) => setUserState({ ...userState, Name: e.target.value })} />
                                     <div class="valid-feedback">Username field is valid!</div>
                                     <div class="invalid-feedback">Username field cannot be blank!</div>
                                 </div>
 
                                 <div class="col-md-12">
-                                    <input class="form-control" type="password" name="password" placeholder="סיסמא" required value={passengerState.Password}
-                                        onChange={(e) => setPassengerState({ ...passengerState, Password: e.target.value })} />
+                                    <input class="form-control" type="password" name="password" placeholder="סיסמא" required value={userState.Password}
+                                        onChange={(e) => setUserState({ ...userState, Password: e.target.value })} />
                                     <div class="valid-feedback">Password field is valid!</div>
                                     <div class="invalid-feedback">Password field cannot be blank!</div>
                                 </div>
@@ -71,7 +91,22 @@ function SignIn() {
                 </div>
             </div>
         </div>
-
+    </>
     )
+
 }
-export default SignIn;
+
+const mapStateToProps = state => {
+    return {
+        userDetails: state?.user
+    };
+};
+const setDispatchToProps = dispatch => {
+    return {
+        setUser: (USER) => dispatch({ type: 'SET_USER', user: USER }),
+    }
+};
+
+const SignInContainer = connect(mapStateToProps, setDispatchToProps)(SignIn);
+
+export default SignInContainer;

@@ -1,13 +1,30 @@
 import React, { Fragment } from 'react';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
+import Navbar from '../components/navbar';
+import axios from 'axios';
 
 function ManagerZone() {
     const navigate = useNavigate();
     const handleClick = e => {
         navigate("/" + e);
     }
+
+    const handleClickApprove = (event)  =>{
+        alert("hi");
+        event.preventDefault();
+        alert("hello");
+        axios.get(`http://localhost:3001/manager/getNewVolunteers`)
+        .then(response => {
+            if (response.status === 200) {
+                alert(response);
+            }
+        })
+        .catch(err => console.warn(err));
+    };
     return (
+        <>
+        <Navbar></Navbar>
         <div class="managerZone">
             <div class="profile">
                 <Button>
@@ -30,7 +47,7 @@ function ManagerZone() {
                 </Button>
             </div>
             <div class="approveVolunteers">
-                <Button >
+                <Button onClick={handleClickApprove}>
                     אישור מתנדבים חדשים
                 </Button>
             </div>
@@ -45,6 +62,7 @@ function ManagerZone() {
                 </Button>
             </div>
         </div>
+        </>
     );
 };
 export default ManagerZone;
