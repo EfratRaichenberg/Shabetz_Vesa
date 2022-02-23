@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Button } from 'react-bootstrap';
+import logo from '../pictures/logo.png';
+
 //import { render } from 'https://cdn.skypack.dev/react-dom'
 //const ROOT_NODE = document.querySelector('#app')
 
@@ -15,7 +17,8 @@ function Navbar() {
             <div className="container-fluid" dir="rtl">
 
                 <a className="navbar-brand p-0 me-2" href="/home">
-                    <h1>שבץ וסע</h1>
+                    <h1>            <img className='logoimg' src={logo} alt="Logo" />
+                    </h1>
                 </a>
 
 
