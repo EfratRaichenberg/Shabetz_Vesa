@@ -14,7 +14,7 @@ function Navbar() {
         <nav className="navbar navbar-expand-lg navbar-light bg-white sticky-top">
             <div className="container-fluid" dir="rtl">
 
-                <a className="navbar-brand p-0 me-2" href="/home">
+                <a className="navbar-brand p-0 me-2" href="/">
                     <h1>שבץ וסע</h1>
                 </a>
 

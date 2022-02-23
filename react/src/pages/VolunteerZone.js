@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
+import Navbar from '../components/navbar';
 
 function VolunteerZone() {
     const navigate = useNavigate();
@@ -8,6 +9,8 @@ function VolunteerZone() {
         navigate("/" + e);
     }
     return (
+        <>
+        <Navbar></Navbar>
         <div class="volunteerZone">
             <div class="profile">
                 <Button>
@@ -45,6 +48,7 @@ function VolunteerZone() {
                 </Button>
             </div>
         </div>
+        </>
     );
 };
 export default VolunteerZone;

@@ -1,13 +1,16 @@
 import React, { Fragment } from 'react';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
-
+import Navbar from '../components/navbar';
+import { connect } from 'react-redux';
 function PassengerZone() {
     const navigate = useNavigate();
     const handleClick = e => {
         navigate("/" + e);
     }
     return (
+        <>
+        <Navbar></Navbar>
         <div class="passengerZone">
             <div class="profile">
                 <Button>
@@ -39,6 +42,19 @@ function PassengerZone() {
                 </Button>
             </div>
         </div>
+        </>
     );
 };
+// const mapStateToProps = state => {
+//     return {
+//        userDetails: state?.user
+//        };
+//    };
+//    const setDispatchToProps = dispatch => {
+//    return {
+//        setUser: (USER) => dispatch({ type: 'SET_USER', user: USER }),
+//           }
+//    };
+// const PassengerZoneContainer = connect(mapStateToProps, setDispatchToProps)(PassengerZone);
+
 export default PassengerZone;

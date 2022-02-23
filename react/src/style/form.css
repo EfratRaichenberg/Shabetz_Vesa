@@ -11,9 +11,9 @@
 
 html, body {
     height: 100%;
-    background-color: #cccaca;
+    background-color: #EDF1F2;
     overflow: hidden;
-    /* overflow: auto; */
+    overflow: auto;
 
 }
 
