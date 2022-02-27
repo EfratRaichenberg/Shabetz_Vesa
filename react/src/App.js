@@ -11,9 +11,9 @@ import LogOut from './pages/LogOut';
 import MyComp from './pages/MyComp';
 import SignUpPas from './pages/SignUpPas';
 import SignUpVol from './pages/SignUpVol';
-import VolunteerZone from './pages/VolunteerZone';
-import PassengerZone from './pages/PassengerZone';
-import ManagerZone from './pages/ManagerZone';
+import VolunteerZone from './pages/volunteer/VolunteerZone';
+import PassengerZone from './pages/passenger/PassengerZone';
+import ManagerZone from './pages/manager/ManagerZone';
 import { Navbar, Container } from 'react-bootstrap';
 import form from './style/form.css'
 import { Provider } from 'react-redux';

@@ -1,7 +1,6 @@
-import React, { Fragment } from 'react';
-import { useNavigate } from "react-router-dom";
-import { Button } from 'react-bootstrap';
+import React from 'react';
 import logo from '../pictures/logo.png';
+import "./navbar.css"
 
 //import { render } from 'https://cdn.skypack.dev/react-dom'
 //const ROOT_NODE = document.querySelector('#app')
@@ -13,32 +12,33 @@ function Navbar() {
     // }
     return (
 
-        <nav className="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <nav className="navbar navbar-expand-lg navbar-light bg-white">
+            <a className="navbar-brand p-0 me-2" href="/home">
+                <img className='logoimg' src={logo} alt="Logo" />
+            </a>
             <div className="container-fluid" dir="rtl">
-
-                <a className="navbar-brand p-0 me-2" href="/home">
-                    <h1>            <img className='logoimg' src={logo} alt="Logo" />
-                    </h1>
-                </a>
-
-
-                <div className="navber-brand d-flex align-self-center ">
+                <div className="navber-brand d-flex">
                     <div className="nav-item m-2">
-                        <a className="align-self-center" href="/orderDrive">
-                            הזמנת נסיעה
-                        </a>
-                    </div>
-                    <div className="nav-item m-2">
-                        <a className="align-self-center" href="/about">
+                        <a className="" href="/about">
                             אודות
                         </a>
                     </div>
-                </div>
 
+                </div>
+                {/* <div className="nav-item m-2">
+                    <a className="" href="/orderDrive">
+                        הזמנת נסיעה
+                    </a>
+                </div> */}
                 <div className="navber-brand d-flex align-self-center ">
                     <div className="nav-item m-2">
+
+                        {/* <FontAwesomeIcon icon="fa-solid fa-right-to-bracket" />
+                    <FontAwesomeIcon icon="fa-solid fa-house" /> */}
                         <a href="/signIn" className="notification">
                             כניסה
+                            {/* <i class="fa fa-edit" title="edit task"></i> */}
+                            {/* <FontAwesomeIcon icon="fa-solid faUser" size="lg" /> */}
                         </a>
                     </div>
                     <div className="nav-item m-2">
@@ -46,9 +46,12 @@ function Navbar() {
                             הרשמה
                         </a>
                     </div>
+                    <div className="nav-item m-2">
+                        <a className="align-self-center" href="/signUp">
+                            יציאה
+                        </a>
+                    </div>
                 </div>
-
-
                 {/* <div className="collapse navbar-collapse" id="navbarNavDropdown">
                     <form className="navbar-item d-flex align-items-center input-group w-auto" dir="rtl">
                         <input id="search-input" className="form-control lg-2" type="search" placeholder="חיפוש" ></input>
@@ -90,5 +93,4 @@ function Navbar() {
     );
 };
 
-//render(<HomePage />, ROOT_NODE)
 export default Navbar;

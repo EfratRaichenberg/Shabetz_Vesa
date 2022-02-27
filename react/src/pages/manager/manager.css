@@ -1,0 +1,38 @@
+.managerPage{
+    width: 85%;
+    float: left;
+}
+.table{
+    width: 80%;
+}
+.inlay_options{
+    margin-right: -50%;
+}
+.inlay_button {
+    background-color: white;
+    border-radius: 15px;
+    border-color: #C71585;
+    color: #C71585;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 20vh 0 8vh 1%;
+  }
+  .inlay_button:hover {
+    background-color: #C71585;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+    cursor: pointer;
+  }
+  .inlay_button:active {
+    color: white;
+    background-color: #C71585;
+    box-shadow: none;
+    transform: translateY(0);
+  }
+  .basic_div{
+    height: 10vh;
+  }
