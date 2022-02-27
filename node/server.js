@@ -1,25 +1,23 @@
-//מודולים מערכת
-const cors = require('cors');
-const express= require('express');
-const bodyparser = require('body-parser');
-// מודולים שלי
-const {mysqlConnection} = require("./mySql/mysql");
-const volunteerRouter = require('./routers/volunteerRouter');
-const passengerRouter = require('./routers/passengerRouter');
+ //מודולים מערכת
+ const cors = require('cors');
+ const express= require('express');
+ const morgan = require('morgan');
+ const bodyparser = require('body-parser');
+ const router = require("./router/router");
+// // מודולים שלי
+// const {mysqlConnection} = require("./mySql/mysql");
+// const userRouter = require('./routers/userRouter');
+// const ordersRouter = require('./routers/ordersRouter');
+// const managerRouter = require('./routers/managerRouter');
 
 const port = process.env.PORT || 3001;
 
 var app=express();
 app.use(cors());
 app.use(bodyparser.json());
-app.use("/volunteer",volunteerRouter);
-app.use("/passenger" ,passengerRouter);
-mysqlConnection.connect(function(err) {
-    if (err) {
-       console.error('Connection Failed! '+JSON.stringify(err , undefined , 2));
-    }
-    else
-       console.log('Connection Established Successfuly.');    
-  });
+app.use("/",router);
+// app.use("/orders",ordersRouter);
+// app.use("/manager",managerRouter);
 
   app.listen(port , ()=>console.log(`Listening on port ${port}...`));
+
