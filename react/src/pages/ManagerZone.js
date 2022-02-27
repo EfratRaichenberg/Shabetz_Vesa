@@ -11,13 +11,11 @@ function ManagerZone() {
     }
 
     const handleClickApprove = (event)  =>{
-        alert("hi");
         event.preventDefault();
-        alert("hello");
-        axios.get(`http://localhost:3001/manager/getNewVolunteers`)
+        axios.get(`http://localhost:3001/newVolunteer`)
         .then(response => {
             if (response.status === 200) {
-                alert(response);
+                alert(JSON.stringify(response.data));
             }
         })
         .catch(err => console.warn(err));

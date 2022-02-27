@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Navbar from '../components/navbar';
+import { connect } from 'react-redux';
 
-function OrderDrive() {
+function OrderDrive(props) {
     const [passengerState, setPassengerState] = useState(
         {
             Hour: '',
@@ -14,8 +15,8 @@ function OrderDrive() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post(`http://localhost:3001/orders/addNewOrderDrive`, {
-            "user_id": '',
+        axios.post(`http://localhost:3001/addOrder`, {
+            "user_id": props.userDetails.user.UserId,
             "Hour": passengerState.Hour,
             "Adrress": passengerState.Source,
             "Hospital":passengerState.Hospital
@@ -72,5 +73,13 @@ function OrderDrive() {
         </>
     );
 };
-ReactDOM.render(<OrderDrive />, document.getElementById('root'));
-export default OrderDrive;
+
+const mapStateToProps = state => {
+    return {
+        userDetails: state?.user
+    };
+};
+
+const OrderDriveContainer = connect(mapStateToProps, null)(OrderDrive);
+
+export default OrderDriveContainer;
