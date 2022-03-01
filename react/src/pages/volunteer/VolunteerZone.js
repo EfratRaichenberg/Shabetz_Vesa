@@ -36,12 +36,12 @@ function VolunteerZone() {
             <Navbar></Navbar>
             {/* <SideNavbar menu={volnuteerMenu} /> */}
             <div id="mySidenav" className="sidenav">
-            <a href="" onClick={(e) => {executeScroll(e, newTravel)}}> נסיעה הבאה</a>
-                <a href="" onClick={(e) => {executeScroll(e, nextTravels)}}> נסיעות למחר</a>
-                <a href="" onClick={(e) => {executeScroll(e, lastTravels)}}>נסיעות קודמות </a>
-                <a href="" onClick={(e) => {executeScroll(e, feedback)}}> פידבקים</a>
-                <a href="" onClick={(e) => {executeScroll(e, profile)}}> פרופיל</a>
-                </div>
+                <a href="" onClick={(e) => { executeScroll(e, newTravel) }}> נסיעה הבאה</a>
+                <a href="" onClick={(e) => { executeScroll(e, nextTravels) }}> נסיעות למחר</a>
+                <a href="" onClick={(e) => { executeScroll(e, lastTravels) }}>נסיעות קודמות </a>
+                <a href="" onClick={(e) => { executeScroll(e, feedback) }}> פידבקים</a>
+                <a href="" onClick={(e) => { executeScroll(e, profile) }}> פרופיל</a>
+            </div>
             {/* <div className="volunteerZone">
             <div className="profile">
                 <Button>
@@ -85,27 +85,27 @@ function VolunteerZone() {
                     <p className="p_textTravel">22/02/2022</p>
                     <p className="p_textTravel">14:30</p>
                 </div>
-                <div 
-                style={{marginTop: '-10vh'}} 
-                ref={nextTravels}
+                <div
+                    style={{ marginTop: '-10vh' }}
+                    ref={nextTravels}
                 ></div>
                 <div className="table_volunteer" >
                     <p className="p_tableTitle">נסיעות למחר</p>
                     <hr />
                     <BasicTable />
                 </div>
-                <div 
-                style={{marginTop: '-10vh', height:'2vh'}} 
-                ref={lastTravels}
+                <div
+                    style={{ marginTop: '-10vh', height: '2vh' }}
+                    ref={lastTravels}
                 ></div>
                 <div className="table_volunteer">
                     <p className="p_tableTitle">נסיעות קודמות</p>
                     <hr />
                     <BasicTable />
                 </div>
-                <div 
-                style={{marginTop: '-10vh', height: "8vh"}} 
-                ref={feedback}
+                <div
+                    style={{ marginTop: '-10vh', height: "8vh" }}
+                    ref={feedback}
                 ></div>
                 <p className="p_textFeedback">רצינו להגיד תודה</p>
                 <hr />
@@ -135,8 +135,8 @@ function VolunteerZone() {
                     </div>
                 </div>
                 <div
-                ref={profile}>
-                <Profile />
+                    ref={profile}>
+                    <Profile />
                 </div>
                 <div className="basic_div"></div>
             </div>

@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 import Navbar from '../../components/navbar';
 import BasicTable from '../basicComponents/table/table';
@@ -46,10 +46,10 @@ function ManagerZone() {
             <Navbar></Navbar>
             {/* <SideNavbar menu={managerMenu} /> */}
             <div id="mySidenav" className="sidenav">
-                <a href="" onClick={(e) => {executeScroll(e, create)}}>יצירת שיבוץ</a>
-                <a href="" onClick={(e) => {executeScroll(e, newVolnuteers)}}>מתנדבים חדשים</a>
-                <a href="" onClick={(e) => {executeScroll(e, volnuteers)}}> מתנדבים</a>
-                <a href="" onClick={(e) => {executeScroll(e, passengers)}}>נוסעים </a>
+                <a href="" onClick={(e) => { executeScroll(e, create) }}>יצירת שיבוץ</a>
+                <a href="" onClick={(e) => { executeScroll(e, newVolnuteers) }}>מתנדבים חדשים</a>
+                <a href="" onClick={(e) => { executeScroll(e, volnuteers) }}> מתנדבים</a>
+                <a href="" onClick={(e) => { executeScroll(e, passengers) }}>נוסעים </a>
                 {/* {managerMenu.map((item) => {
                     return <a href="#"
                     // onClick={(e) => executeScroll(e.target.ref)}
@@ -97,35 +97,35 @@ function ManagerZone() {
             </div> */}
             {/* </div> */}
             <div className="managerPage">
-                <div className="inlay_options" 
-                ref={create}
+                <div className="inlay_options"
+                    ref={create}
                 >
                     <button className="inlay_button">שיבוץ חדש</button>
                     <button className="inlay_button">שיבוץ קודם</button>
                     <button className="inlay_button">אישור</button>
                 </div>
                 <BasicTable />
-                <div 
-                style={{marginTop: '-10vh', height:'2vh'}} 
-                ref={newVolnuteers}
+                <div
+                    style={{ marginTop: '-10vh', height: '2vh' }}
+                    ref={newVolnuteers}
                 ></div>
                 <div className="table_volunteer" >
                     <p className="p_tableTitle1 p_tableTitle" >מתנדבים חדשים</p>
                     <hr />
                     <BasicTable />
                 </div>
-                <div 
-                style={{marginTop: '-10vh', height:'2vh'}} 
-                ref={volnuteers}
+                <div
+                    style={{ marginTop: '-10vh', height: '2vh' }}
+                    ref={volnuteers}
                 ></div>
                 <div className="table_volunteer" >
                     <p className="p_tableTitle2 p_tableTitle">מתנדבים</p>
                     <hr />
                     <BasicTable />
                 </div>
-                <div 
-                style={{marginTop: '-10vh'}} 
-                ref={passengers}
+                <div
+                    style={{ marginTop: '-10vh' }}
+                    ref={passengers}
                 ></div>
                 <div className="table_volunteer">
                     <p className="p_tableTitle3 p_tableTitle">נוסעים</p>
@@ -134,12 +134,12 @@ function ManagerZone() {
                 </div>
                 <div className="basic_div"></div>
                 <center>
-				<strong>Powered by <a className="powered" href="" target="_blank">Efrat & Moriya</a></strong>
-			</center>
-			<br></br>
-			<br></br>
+                    <strong>Powered by <a className="powered" href="" target="_blank">Efrat & Moriya</a></strong>
+                </center>
+                <br></br>
+                <br></br>
             </div>
-            
+
         </>
     );
 };

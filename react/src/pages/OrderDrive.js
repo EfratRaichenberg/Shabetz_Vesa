@@ -27,7 +27,7 @@ function OrderDrive() {
 
     return (
         <>
-        <Navbar></Navbar>
+        {/* <Navbar></Navbar> */}
         <div class="form-body">
             <div class="row">
                 <div class="form-holder">
