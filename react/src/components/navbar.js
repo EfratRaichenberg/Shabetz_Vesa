@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import logo from '../pictures/logo.png';
-import "./navbar.css"
+import "./navbar.css";
+import Button from 'react-bootstrap/Button';
 
 //import { render } from 'https://cdn.skypack.dev/react-dom'
 //const ROOT_NODE = document.querySelector('#app')
@@ -19,7 +21,9 @@ function Navbar() {
             <div className="container-fluid" dir="rtl">
                 <div className="navber-brand d-flex">
                     <div className="nav-item m-2">
-                        <a className="" href="/about">
+                        <a className="" href="/About"
+                        // onClick={() => handleClick('About')}
+                        >
                             אודות
                         </a>
                     </div>
@@ -35,19 +39,23 @@ function Navbar() {
 
                         {/* <FontAwesomeIcon icon="fa-solid fa-right-to-bracket" />
                     <FontAwesomeIcon icon="fa-solid fa-house" /> */}
-                        <a href="/signIn" className="notification">
+                        <a href="/SignIn" className="notification">
                             כניסה
                             {/* <i class="fa fa-edit" title="edit task"></i> */}
                             {/* <FontAwesomeIcon icon="fa-solid faUser" size="lg" /> */}
                         </a>
                     </div>
                     <div className="nav-item m-2">
-                        <a className="align-self-center" href="/signUp">
+                        <a className="align-self-center" href="/SignUp" 
+                        // onClick={() => handleClick('SignUp')}
+                        >
                             הרשמה
                         </a>
                     </div>
                     <div className="nav-item m-2">
-                        <a className="align-self-center" href="/signUp">
+                        <a className="align-self-center" href="/LogOut" 
+                        // onClick={() => handleClick('LogOut')}
+                        >
                             יציאה
                         </a>
                     </div>

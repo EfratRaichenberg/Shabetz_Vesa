@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 import { FaArrowCircleDown, FaRegHeart } from "react-icons/fa";
 import Navbar from '../../components/navbar';
@@ -10,9 +10,21 @@ import "../manager/manager.css";
 
 
 function VolunteerZone() {
+
+    // const  = useRef(null);
+    const newTravel = useRef(null);
+    const nextTravels = useRef(null);
+    const lastTravels = useRef(null);
+    const feedback = useRef(null);
+
     const navigate = useNavigate();
     const handleClick = e => {
         navigate("/" + e);
+    }
+
+    const executeScroll = (e, item) => {
+        e.preventDefault();
+        item.current.scrollIntoView()
     }
 
     let volnuteerMenu = ["פידבקים", "נסיעות למחר", "נסיעות קודמות", "פרופיל"]
@@ -21,7 +33,13 @@ function VolunteerZone() {
     return (
         <>
             <Navbar></Navbar>
-            <SideNavbar menu={volnuteerMenu} />
+            {/* <SideNavbar menu={volnuteerMenu} /> */}
+            <div id="mySidenav" className="sidenav">
+            <a href="" onClick={(e) => {executeScroll(e, newTravel)}}> נסיעה הבאה</a>
+                <a href="" onClick={(e) => {executeScroll(e, nextTravels)}}> נסיעות למחר</a>
+                <a href="" onClick={(e) => {executeScroll(e, lastTravels)}}>נסיעות קודמות </a>
+                <a href="" onClick={(e) => {executeScroll(e, feedback)}}> פידבקים</a>
+                </div>
             {/* <div className="volunteerZone">
             <div className="profile">
                 <Button>
@@ -60,21 +78,33 @@ function VolunteerZone() {
             </div>
         </div> */}
             <div className="volnuteerPage">
-                <div className="bg_img_volnuteer">
+                <div className="bg_img_volnuteer" ref={newTravel}>
                     <p className="p_textTravel1">נסיעה הבאה:</p>
                     <p className="p_textTravel">22/02/2022</p>
                     <p className="p_textTravel">14:30</p>
                 </div>
-                <div className="table_volunteer">
+                <div 
+                style={{marginTop: '-10vh'}} 
+                ref={nextTravels}
+                ></div>
+                <div className="table_volunteer" >
                     <p className="p_tableTitle">נסיעות למחר</p>
                     <hr />
                     <BasicTable />
                 </div>
+                <div 
+                style={{marginTop: '-10vh', height:'2vh'}} 
+                ref={lastTravels}
+                ></div>
                 <div className="table_volunteer">
                     <p className="p_tableTitle">נסיעות קודמות</p>
                     <hr />
                     <BasicTable />
                 </div>
+                <div 
+                style={{marginTop: '-10vh', height: "8vh"}} 
+                ref={feedback}
+                ></div>
                 <p className="p_textFeedback">רצינו להגיד תודה</p>
                 <hr />
                 <div className="feedback_Gallery">
@@ -102,7 +132,7 @@ function VolunteerZone() {
                         <FaArrowCircleDown style={{ fontSize: '30px', marginBottom: '3vh' }} />
                     </div>
                 </div>
-                <Profile />
+                {/* <Profile /> */}
                 <div className="basic_div"></div>
             </div>
         </>
