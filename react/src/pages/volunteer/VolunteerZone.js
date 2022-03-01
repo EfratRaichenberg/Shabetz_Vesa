@@ -16,6 +16,7 @@ function VolunteerZone() {
     const nextTravels = useRef(null);
     const lastTravels = useRef(null);
     const feedback = useRef(null);
+    const profile = useRef(null);
 
     const navigate = useNavigate();
     const handleClick = e => {
@@ -39,6 +40,7 @@ function VolunteerZone() {
                 <a href="" onClick={(e) => {executeScroll(e, nextTravels)}}> נסיעות למחר</a>
                 <a href="" onClick={(e) => {executeScroll(e, lastTravels)}}>נסיעות קודמות </a>
                 <a href="" onClick={(e) => {executeScroll(e, feedback)}}> פידבקים</a>
+                <a href="" onClick={(e) => {executeScroll(e, profile)}}> פרופיל</a>
                 </div>
             {/* <div className="volunteerZone">
             <div className="profile">
@@ -132,7 +134,10 @@ function VolunteerZone() {
                         <FaArrowCircleDown style={{ fontSize: '30px', marginBottom: '3vh' }} />
                     </div>
                 </div>
-                {/* <Profile /> */}
+                <div
+                ref={profile}>
+                <Profile />
+                </div>
                 <div className="basic_div"></div>
             </div>
         </>

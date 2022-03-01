@@ -17,11 +17,11 @@ function Profile() {
 
 							<div className="profile-usertitle">
 								<div className="profile-usertitle-name">
-									טופס הרשמה
+									 פרופיל
 								</div>
-								<div className="profile-usertitle-job">
+								{/* <div className="profile-usertitle-job">
 									מתנדב
-								</div>
+								</div> */}
 							</div>
 
 							<div className="main-login-form">

@@ -7,6 +7,7 @@ import SideNavbar from '../../components/sideNavbar';
 import "./manager.css";
 import "../volunteer/volnuteer.css";
 import "../../components/navbar.css";
+import "../basicComponents/profile/profile.css";
 
 
 function ManagerZone() {
@@ -132,7 +133,13 @@ function ManagerZone() {
                     <BasicTable />
                 </div>
                 <div className="basic_div"></div>
+                <center>
+				<strong>Powered by <a className="powered" href="" target="_blank">Efrat & Moriya</a></strong>
+			</center>
+			<br></br>
+			<br></br>
             </div>
+            
         </>
     );
 };
