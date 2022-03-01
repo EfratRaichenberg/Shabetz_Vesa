@@ -6,7 +6,7 @@ function About() {
     return (
         <>
         <Navbar></Navbar>
-        <SideNavbar />
+        {/* <SideNavbar /> */}
         <div class="form-body">
             <div class="row">
                 <div class="form-holder">

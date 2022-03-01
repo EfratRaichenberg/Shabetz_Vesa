@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import Navbar from '../components/navbar';
+import "./pages.css"
 
 function SignUp()
 {
    return(
        <>
          <Navbar></Navbar>
-         <div>
+         <div className='linkInSighUp'>
                     <div>
                         <a className="align-self-center" href="/SignUpVol">
                           אני רוצה להתנדב
