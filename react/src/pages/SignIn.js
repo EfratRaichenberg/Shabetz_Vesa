@@ -20,7 +20,6 @@ const SignIn = (props) => {
         axios.get(`http://localhost:3001/signIn/${userState.Name}/${userState.Password}`)
             .then(response => {
                 if (response.status === 200) {
-                    alert(response.data[0])
                     props.setUser({
                         user: {
                             UserId: response.data[0].user_id,
@@ -31,7 +30,8 @@ const SignIn = (props) => {
                             phone: response.data[0].Phone_number,
                             City: response.data[0].City,
                             Neighborhood: response.data[0].Neighborhood,
-                            Street: response.data[0].Street
+                            Street: response.data[0].Street,
+                            Status:response.data[0].Approved_status
                         }
                     })
                     console.log(props.userDetails);
@@ -42,7 +42,17 @@ const SignIn = (props) => {
     };
         if (navigateTo) {
            if(props.userDetails.user.Type==="Volunteer")
-               navigate('/VolunteerZone')
+           {
+              if(props.userDetails.user.Status===1)
+              {
+                   navigate('/VolunteerZone')
+              }    
+              else
+              {
+                  alert("חשבונך עדיין לא אושר.");
+                  navigate('/');
+              }
+            }    
            if(props.userDetails.user.Type==="Passenger")
               navigate('/PassengerZone');
            if(props.userDetails.user.Type==="Admin")

@@ -36,7 +36,8 @@ class StateLoader {
                 phone : '',
                 City : '',
                 Neighborhood : '',
-                Street: ''
+                Street: '',
+                Status:false
             }
         }
     };

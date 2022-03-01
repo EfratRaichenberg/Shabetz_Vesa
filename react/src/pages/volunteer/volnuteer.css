@@ -1,0 +1,79 @@
+.volnuteerPage{
+    width: 87%;
+    float: left;
+}
+.feedback_Gallery{
+    display: flex;
+    column-gap: 5%;
+    justify-content: center;
+    margin: 8vh 0 20vh 0;
+}
+div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    width: 20%;
+  }
+  
+  div.gallery:hover {
+    border: 1px solid #777;
+  }
+  
+  div.gallery img {
+    width: 80%;
+    height: auto;
+  }
+  div.desc {
+    padding: 15px;
+    text-align: center;
+  }
+  .bg_img_volnuteer{
+    background-image: url('../../pictures/bgImgVolnuteer.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    opacity: 0.5;
+    width: 100%;
+    height: 110vh;
+    position: relative;
+  }
+  .p_textTravel, .p_textTravel1{
+      font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
+      color:white;
+      position: relative;
+      top: 32vh;
+      right: 4vh;
+  }
+  .p_textTravel{
+    font-size: 10vh;
+    font-style: italic; 
+  }
+  .p_textTravel1{
+    font-size: 8vh;
+  }
+  .p_textFeedback{
+    color: #777;
+    font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
+    font-size: 8vh;
+    margin-top: 20vh;
+    margin-right: -40%;
+  }
+  .p_tableTitle{
+    color: #10999b;
+    font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
+    font-size: 5vh;
+    margin-top: 45vh;
+  }
+  .p_tableTitle{
+    margin-right: -63%;
+  }
+  .p_tableTitle1{
+    margin-right: -61%;
+  }
+  .p_tableTitle2{
+    margin-right: -70%;
+  }
+  .p_tableTitle3{
+    margin-right: -72%;
+  }
+  .table_volunteer{
+    margin-bottom: 25vh;
+  }

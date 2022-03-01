@@ -68,7 +68,7 @@ function SignUpVol() {
                         <div class="form-items">
                             <h3> הרשמה למשפחת שבץ וסע </h3>
                             <form class="requires-validation" novalidate onSubmit={handleSubmit}>
-
+                                <h2>* פרטים אישיים</h2>
                                 <div class="col-md-12">
                                     <input class="form-control" type="text" name="name" placeholder="שם פרטי" required value={volunteerState.firstName}
                                         onChange={(e) => setVolunteerState({ ...volunteerState, firstName: e.target.value })} />
@@ -104,7 +104,7 @@ function SignUpVol() {
                                     <div class="valid-feedback">neighborhood field is valid!</div>
                                     <div class="invalid-feedback">neighborhood field cannot be blank!</div>
                                 </div>
-
+                                 
                                 <div class="col-md-12">
                                     <input class="form-control" type="text" name="name" placeholder="עיר" required value={volunteerState.city}
                                         onChange={(e) => setVolunteerState({ ...volunteerState, city: e.target.value })} />

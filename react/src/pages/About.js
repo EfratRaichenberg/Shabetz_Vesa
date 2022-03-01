@@ -1,10 +1,12 @@
 import React from 'react';
 import Navbar from '../components/navbar';
+import SideNavbar from '../components/sideNavbar';
 
 function About() {
     return (
         <>
         <Navbar></Navbar>
+        <SideNavbar />
         <div class="form-body">
             <div class="row">
                 <div class="form-holder">

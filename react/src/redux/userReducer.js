@@ -10,7 +10,8 @@ const init = {
         phone : '',
         City : '',
         Neighborhood : '',
-        Street: ''
+        Street: '',
+        Status:false
     }
 }
 

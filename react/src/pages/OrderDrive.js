@@ -9,7 +9,8 @@ function OrderDrive(props) {
         {
             Hour: '',
             Hospital: '',
-            Source:''
+            Source:'',
+            place_number:''
         }
     );
 
@@ -19,7 +20,8 @@ function OrderDrive(props) {
             "user_id": props.userDetails.user.UserId,
             "Hour": passengerState.Hour,
             "Adrress": passengerState.Source,
-            "Hospital":passengerState.Hospital
+            "Hospital":passengerState.Hospital,
+            "place_number":passengerState.place_number
         })
             .then(response => response.status)
             .catch(err => console.warn(err));
@@ -55,6 +57,14 @@ function OrderDrive(props) {
                                 <div class="col-md-12">
                                     <input class="form-control" type="text" name="name" placeholder="בית חולים" required value={passengerState.Hospital}
                                         onChange={(e) => setPassengerState({ ...passengerState, Hospital: e.target.value })} />
+                                    <div class="valid-feedback">Username field is valid!</div>
+                                    <div class="invalid-feedback">Username field cannot be blank!</div>
+                                </div>
+                                <br></br>
+                                <h3>כמה :</h3>
+                                <div class="col-md-12">
+                                    <input class="form-control" type="text" name="name" placeholder="כמות נוסעים " required value={passengerState.place_number}
+                                        onChange={(e) => setPassengerState({ ...passengerState, place_number: e.target.value })} />
                                     <div class="valid-feedback">Username field is valid!</div>
                                     <div class="invalid-feedback">Username field cannot be blank!</div>
                                 </div>
