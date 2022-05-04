@@ -3,8 +3,9 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import validator from 'validator';
 import Navbar from '../components/navbar';
+import { connect } from 'react-redux';
 
-function SignUpVol() {
+function SignUpVol(props) {
    const [emailError, setEmailError] = useState('')
    const validateEmail = (e) => {
       var email = e.target.value
@@ -29,6 +30,7 @@ function SignUpVol() {
             Mail: '',
             NumPlace:'',
             CarLeaflet:false,
+            Casual_status:false,
             ApprovedStatus:false
         }
     );
@@ -48,14 +50,14 @@ function SignUpVol() {
             "Neighborhood": volunteerState.neighborhood,
             "Street": volunteerState.street,
             "Num_places":volunteerState.NumPlace,
-            "Car_leaflet":volunteerState.CarLeaft,
+            "Car_leaflet":volunteerState.CarLeaflet,
             "Casual_status": false, 
             "Approved_status":false
         })
             .then(response => response.status)
             .catch(err => console.warn(err));
         alert("insert successfuly");
-        handleClick('VolunteerZone');
+        handleClick('VolCalendar');
     };
     
     return(
@@ -132,38 +134,18 @@ function SignUpVol() {
                                     <div class="valid-feedback">email field is valid!</div>
                                     <div class="invalid-feedback">email field cannot be blank!</div>
                                 </div>
+                                <br/>
 
                                 <div class="col-md-12">
-                                    <input class="form-control" type="text" id="CarLeaflet" name="name" placeholder="יש מעלון?" required value={volunteerState.CarLeaflet}
-                                        onChange={(e) => setVolunteerState({ ...volunteerState, CarLeaflet: e.target.value })} />
+                                    <input class="form-check-input" type="checkbox" id="CarLeaflet" name="name"  required value={volunteerState.CarLeaflet}
+                                        onChange={(e) => setVolunteerState({ ...volunteerState, CarLeaflet: true })} />
+                                        <label class="form-check-label">יש מעלון?</label>
                                     <div class="valid-feedback">email field is valid!</div>
                                     <div class="invalid-feedback">email field cannot be blank!</div>
                                 </div>
-                                {/* 
-                                <div class="col-md-12">
-                                    <input class="form-control" type="text" name="name" placeholder="בית חולים" required value={passengerState.Hospital}
-                                        onChange={(e) => setPassengerState({ ...passengerState, Hospital: e.target.value })} />
-                                    <div class="valid-feedback">hospital field is valid!</div>
-                                    <div class="invalid-feedback">hospital field cannot be blank!</div>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <input class="form-control" type="time" name="name" placeholder="שעת טיפול קבועה" required value={passengerState.Hour}
-                                        onChange={(e) => setPassengerState({ ...passengerState, Hour: e.target.value })} />
-                                    <div class="valid-feedback">hour field is valid!</div>
-                                    <div class="invalid-feedback">hour field cannot be blank!</div>
-                                </div> */}
-
                                 <div class="col-md-12 mt-3">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required />
-                                        <label class="form-check-label">זכור אותי</label>
-                                        <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>
-                                    </div>
-
-
                                     <div class="form-button mt-3">
-                                        <button id="submit" type="submit" class="btn btn-primary">הירשם</button>
+                                        <button id="submit" type="submit" class="btn btn-primary">המשך רישום</button>
                                     </div>
                                 </div>
                             </form>

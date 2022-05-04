@@ -10,6 +10,7 @@ import OrderDrive from './pages/OrderDrive';
 import PasPreperence from './pages/PasPreperence';
 import LogOut from './pages/LogOut';
 import MyComp from './pages/MyComp';
+import VolCalendar from './pages/VolCalendar';
 import SignUpPas from './pages/SignUpPas';
 import SignUpVol from './pages/SignUpVol';
 import VolunteerZone from './pages/volunteer/VolunteerZone';
@@ -33,6 +34,7 @@ function App() {
             <Route path='/SignUpPas' element={<SignUpPas></SignUpPas>} />
             <Route path='/SignUpVol' element={<SignUpVol></SignUpVol>} />
             <Route path='/About' element={<About></About>} />
+            <Route path='/VolCalendar' element={<VolCalendar></VolCalendar>} />
             <Route path='/OrderDrive' element={<OrderDrive></OrderDrive>} />
             <Route path='/LogOut' element={<LogOut></LogOut>} />
             <Route path='/MyComp' element={<MyComp></MyComp>} />

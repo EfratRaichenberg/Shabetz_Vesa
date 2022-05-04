@@ -44,7 +44,7 @@ html, body {
 }
 
 .form-content .form-items {
-    background-color:#e8debf;
+    background-color:#ccc;
     box-shadow: 0px 1px 6px 1px rgb(4 5 8 /10%);
     border: none;
     padding: 40px;
@@ -83,7 +83,7 @@ html, body {
 
 .form-content label, .was-validated .form-check-input:invalid~.form-check-label, .was-validated .form-check-input:valid~.form-check-label{
     color: #b33178;
-    float: left;
+    float: right;
 }
 
 .form-content input[type=text], .form-content input[type=password], .form-content input[type=email],

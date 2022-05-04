@@ -128,14 +128,7 @@ function SignUpPas() {
 
                                     <br></br>
                                     <div class="col-md-12 mt-3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required />
-                                            <label class="form-check-label">זכור אותי</label>
-                                            <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>
-                                        </div>
-
-
-                                        <div class="form-button mt-3">
+                                      <div class="form-button mt-3">
                                             <button id="submit" type="submit" class="btn btn-primary">המשך רישום</button>
                                         </div>
                                     </div>

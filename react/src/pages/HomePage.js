@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 //import { render } from 'https://cdn.skypack.dev/react-dom'
 //const ROOT_NODE = document.querySelector('#app')
 import Navbar from '../components/navbar';
+import homeScreen from '../pictures/homeScreen.gif'
 function HomePage() {
     // const navigate = useNavigate();
     // const handleClick = e => {
@@ -13,7 +14,8 @@ function HomePage() {
         <div>
             <Navbar />
             <div className='container-fluid pt-100' style={{ height: "400px", backgroundColor: "#f0f7f9" }}>
-                <h3>מערך הסעות</h3>
+                {/* <h3>מערך הסעות</h3> */}
+                <img src={homeScreen} />
             </div>
         </div>
     );

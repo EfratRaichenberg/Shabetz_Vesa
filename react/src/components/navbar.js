@@ -1,53 +1,96 @@
 import React from 'react';
 import logo from '../pictures/logo.png';
-import "./navbar.css"
+import "./navbar.css";
+import { connect } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 
-//import { render } from 'https://cdn.skypack.dev/react-dom'
-//const ROOT_NODE = document.querySelector('#app')
 
-function Navbar() {
-    // const navigate = useNavigate();
-    // const handleClick = e => {
-    //     navigate("/" + e);
-    // }
+function Navbar(props) {
+    const navigate = useNavigate();
+    const logout = () => {
+        props.setUser({
+            user: {
+                UserId: '',
+                UserNAme: '',
+                password: '',
+                Type: '',
+                mail: '',
+                phone: '',
+                City: '',
+                Neighborhood: '',
+                Street: '',
+                Num_places: '',
+                Car_leaflet: '',
+                Casual_status: false,
+                Approved_status: false,
+            }
+        })
+        alert("להתראות בפעם הבאה:)")
+        navigate("/");
+    }
+
     return (
 
         <nav className="navbar navbar-expand-lg navbar-light bg-white">
             <a className="navbar-brand p-0 me-2" href="/">
                 <img className='logoimg' src={logo} alt="Logo" />
             </a>
+            {props.userDetails.user.UserNAme != '' &&
+                <div className="nav-item m-2">שלום לך, {props.userDetails.user.UserNAme} </div>}
+
             <div className="container-fluid" dir="rtl">
+                {props.userDetails.user.Type === 'Passenger' &&
                 <div className="navber-brand d-flex">
                     <div className="nav-item m-2">
-                        <a href="/About" className="notification">
+                        <a className="" href='PassengerZone'
+                        >
+                            לאזור האישי
+                        </a>
+                    </div>
+                </div>}
+                {props.userDetails.user.Type === 'Volunteer' &&
+                <div className="navber-brand d-flex">
+                    <div className="nav-item m-2">
+                        <a className="" href='VolunteerZone'
+                        >
+                            לאזור האישי
+                        </a>
+                    </div>
+                </div>}
+                {props.userDetails.user.Type === 'Admin' &&
+                <div className="navber-brand d-flex">
+                    <div className="nav-item m-2">
+                        <a className="" href='ManagerZone'
+                        >
+                            לאזור האישי
+                        </a>
+                    </div>
+                </div>}
+                <div className="navber-brand d-flex">
+                    <div className="nav-item m-2">
+                        <a className="" href="/About"
+                        >
                             אודות
                         </a>
                     </div>
 
                 </div>
-                {/* <div className="nav-item m-2">
-                    <a className="" href="/orderDrive">
-                        הזמנת נסיעה
-                    </a>
-                </div> */}
                 <div className="navber-brand d-flex align-self-center ">
                     <div className="nav-item m-2">
-
-                        {/* <FontAwesomeIcon icon="fa-solid fa-right-to-bracket" />
-                    <FontAwesomeIcon icon="fa-solid fa-house" /> */}
-                        <a href="/signIn" className="notification">
+                        <a href="/SignIn" className="notification">
                             כניסה
                             {/* <i class="fa fa-edit" title="edit task"></i> */}
                             {/* <FontAwesomeIcon icon="fa-solid faUser" size="lg" /> */}
                         </a>
                     </div>
                     <div className="nav-item m-2">
-                        <a className="align-self-center" href="/SignUp">
+                        <a className="align-self-center" href="/SignUp"
+                        >
                             הרשמה
                         </a>
                     </div>
                     <div className="nav-item m-2">
-                        <a className="align-self-center" href="/SignUp">
+                        <a className="align-self-center" onClick={logout}>
                             יציאה
                         </a>
                     </div>
@@ -92,5 +135,17 @@ function Navbar() {
         // </div>
     );
 };
+const mapStateToProps = state => {
+    return {
+        userDetails: state?.user
+    };
+};
+const setDispatchToProps = dispatch => {
+    return {
+        setUser: (USER) => dispatch({ type: 'SET_USER', user: USER }),
+    }
+};
 
-export default Navbar;
+const NavbarContainer = connect(mapStateToProps, setDispatchToProps)(Navbar);
+
+export default NavbarContainer;

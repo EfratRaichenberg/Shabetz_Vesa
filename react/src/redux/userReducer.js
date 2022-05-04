@@ -11,7 +11,10 @@ const init = {
         City : '',
         Neighborhood : '',
         Street: '',
-        Status:false
+        Num_places:'',
+        Car_leaflet:'',
+        Casual_status:false,
+        Approved_status:false,
     }
 }
 

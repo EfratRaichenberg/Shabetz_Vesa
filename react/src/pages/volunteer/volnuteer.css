@@ -60,7 +60,7 @@ div.gallery {
     color: #10999b;
     font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
     font-size: 5vh;
-    margin-top: 45vh;
+    margin-top: 35vh;
   }
   .p_tableTitle{
     margin-right: -63%;
@@ -75,5 +75,5 @@ div.gallery {
     margin-right: -72%;
   }
   .table_volunteer{
-    margin-bottom: 25vh;
+    margin-bottom: 10vh;
   }

@@ -31,7 +31,11 @@ const SignIn = (props) => {
                             City: response.data[0].City,
                             Neighborhood: response.data[0].Neighborhood,
                             Street: response.data[0].Street,
-                            Status:response.data[0].Approved_status
+                            Status:response.data[0].Approved_status,
+                            Num_places:response.data[0].Num_places,
+                            Car_leaflet:response.data[0].Car_leaflet,
+                            Casual_status:response.data[0].Casual_status,
+                            Approved_status:response.data[0].Approved_status,
                         }
                     })
                     console.log(props.userDetails);
@@ -88,14 +92,7 @@ const SignIn = (props) => {
 
 
                                     <div class="col-md-12 mt-3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required />
-                                            <label class="form-check-label">זכור אותי</label>
-                                            <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>
-                                        </div>
-
-
-                                        <div class="form-button mt-3">
+                                   <div class="form-button mt-3">
                                             <button id="submit" type="submit" class="btn btn-primary">הכנס</button>
                                         </div>
                                     </div>

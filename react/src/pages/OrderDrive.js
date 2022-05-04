@@ -25,12 +25,12 @@ function OrderDrive(props) {
         })
             .then(response => response.status)
             .catch(err => console.warn(err));
-        alert("insert successfuly");
+        alert("הזמנתך נקלטה בהצחה");
     };
 
     return (
         <>
-        <Navbar></Navbar>
+        {/* <Navbar></Navbar> */}
         <div class="form-body">
             <div class="row">
                 <div class="form-holder">
